@@ -1,0 +1,178 @@
+/* =========================================================
+   ESTILOS - Calculadora de Tasas de Cambio
+   Paleta: negro, coral y blanco
+   ========================================================= */
+
+/* ----- Variables de color ----- */
+:root {
+    --negro: #111111;
+    --negro-suave: #1f1f1f;
+    --coral: #ff7f6e;
+    --coral-oscuro: #e9644f;
+    --blanco: #ffffff;
+    --gris-borde: #e5e5e5;
+    --gris-texto: #555555;
+}
+
+/* ----- Reglas base ----- */
+/* Incluye el padding dentro del ancho de cada elemento */
+* {
+    box-sizing: border-box;
+}
+
+/* Fondo negro y centrado de la tarjeta */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--negro);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--negro);
+}
+
+/* ----- Tarjeta principal ----- */
+/* Caja blanca con franja coral arriba */
+.contenedor {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--blanco);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-top: 6px solid var(--coral);
+}
+
+/* Título principal */
+h1 {
+    margin: 0 0 6px;
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--negro);
+}
+
+/* Texto debajo del título */
+.descripcion {
+    margin: 0 0 24px;
+    text-align: center;
+    color: var(--gris-texto);
+    font-size: 0.95rem;
+}
+
+/* ----- Formulario ----- */
+/* Etiquetas de cada campo */
+label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--negro);
+}
+
+/* Campo de cantidad y selectores de moneda */
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 2px solid var(--gris-borde);
+    border-radius: 10px;
+    background-color: var(--blanco);
+    color: var(--negro);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Borde coral cuando el campo está activo */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--coral);
+    box-shadow: 0 0 0 3px rgba(255, 127, 110, 0.25);
+}
+
+/* ----- Botones ----- */
+/* Contenedor de los dos botones (en celular van apilados) */
+.botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+/* Estilo común de los botones */
+button {
+    width: 100%;
+    padding: 13px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+/* Botón Convertir: coral */
+#btnConvertir {
+    background-color: var(--coral);
+    color: var(--negro);
+}
+
+#btnConvertir:hover {
+    background-color: var(--coral-oscuro);
+}
+
+/* Botón Actualizar tasa: negro */
+#btnActualizar {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+#btnActualizar:hover {
+    background-color: var(--negro-suave);
+}
+
+/* Efecto al presionar */
+button:active {
+    transform: scale(0.98);
+}
+
+/* ----- Resultado ----- */
+/* Caja donde aparece la conversión */
+#resultado {
+    margin-top: 24px;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #fff4f2;
+    border-left: 5px solid var(--coral);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--negro);
+    word-wrap: break-word;
+}
+
+/* Texto con la tasa y la fecha de actualización */
+#informacionTasa {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--gris-texto);
+}
+
+/* ----- Pantallas medianas y grandes ----- */
+/* A partir de 600px los botones quedan lado a lado */
+@media (min-width: 600px) {
+    .contenedor {
+        padding: 36px 32px;
+    }
+
+    .botones {
+        flex-direction: row;
+    }
+
+    button {
+        flex: 1;
+    }
+}
